@@ -1,0 +1,216 @@
+*{
+    color: white;
+    font-family: sans-serif;
+    transition: 0.2s ease-in-out;
+    user-select: none;
+}
+
+.align{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+body{
+    background-color: #252A34;
+    margin: 0;
+    padding: 0;
+    width: 100vw;
+    text-align: center;
+    padding-top: 5vh;
+}
+
+.turn-container{
+    width: 170px;
+    height: 80px;
+    margin: auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    position: relative;
+}
+
+.turn-container h3{
+    margin: 0;
+    grid-column-start: 1;
+    grid-column-end: 3;
+}
+
+.turn-container .turn-box{
+    border: 3px solid #000;
+    font-size: 1.6rem;
+    font-weight: 700;
+}
+
+.turn-container .turn-box:nth-child(even){
+    border-right: none;
+}
+
+.bg{
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 85px;
+    height: 40px;
+    background-color: #FF2E63;
+    z-index: -1;
+}
+
+.main-grid{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+    height: 250px;
+    width: 250px;
+    margin: 30px auto;
+    border: 2px solid #000;
+}
+
+.box{
+    cursor: pointer;
+    font-size: 2rem;
+    font-weight: 700;
+    border: 2px solid #000;
+}
+
+.box:hover{
+    background-color: #FF2E63;
+}
+
+#play-again{
+    background-color: #FF2E63;
+    padding: 10px 25px;
+    border: none;
+    font-size: 1.2rem;
+    border-radius: 5px;
+    cursor: pointer;
+    display: none;
+}
+
+#play-again:hover{
+    padding: 10px 40px;
+    background-color: #08D9D6;
+    color: #000;
+}
+.scoreboard {
+    position: fixed;
+    top: 20%;
+    right: 20px;
+    background-color: #252A34;
+    color: white;
+    border: 2px solid #000;
+    padding: 15px;
+    width: 150px;
+    border-radius: 8px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+    text-align: center;
+}
+
+.scoreboard h2 {
+    margin: 0;
+    margin-bottom: 10px;
+    font-size: 1.5rem;
+}
+
+.score p {
+    margin: 5px 0;
+    font-size: 1.2rem;
+}
+#game-options {
+    display: none;
+    margin: 20px 0;
+}
+#game-options button {
+    background-color: #FF2E63;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    margin: 0 10px;
+    font-size: 1.2rem;
+    border-radius: 5px;
+    cursor: pointer;
+}
+#game-options button:hover {
+    background-color: #08D9D6;
+    color: black;
+}
+.popup {
+    background-color: #FF2E63;
+    color: white;
+    padding: 20px 40px;
+    border-radius: 15px;
+    font-size: 2rem;
+    font-weight: bold;
+    box-shadow: 0 0 20px 5px #FF2E63, 0 0 30px 10px rgba(255, 46, 99, 0.5);
+    text-align: center;
+    animation: zoomIn 0.5s ease-out, glowPulse 1.5s infinite;
+}
+.popup-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.7);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+@keyframes zoomIn {
+    0% {
+        transform: scale(0.5);
+        opacity: 0;
+    }
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+@keyframes glowPulse {
+    0%, 100% {
+        box-shadow: 0 0 20px 5px #FF2E63, 0 0 30px 10px rgba(255, 46, 99, 0.5);
+    }
+    50% {
+        box-shadow: 0 0 25px 10px #FF2E63, 0 0 40px 15px rgba(255, 46, 99, 0.7);
+    }
+}
+.confetti {
+    position: fixed;
+    top: 0;
+    left: 50%;
+    width: 10px;
+    height: 10px;
+    background: radial-gradient(circle, #FF2E63, #08D9D6);
+    border-radius: 50%;
+    animation: fall linear infinite;
+}
+@keyframes fall {
+    0% {
+        transform: translateX(0) translateY(-50px) rotate(0deg);
+        opacity: 1;
+    }
+    100% {
+        transform: translateX(calc(-50vw + 100px)) translateY(100vh) rotate(360deg);
+        opacity: 0;
+    }
+}
+header {
+    text-align: center;
+    margin-bottom: 20px;
+}
+.game-title {
+    font-size: 3rem;
+    font-weight: bold;
+    color: #FF2E63;
+    text-shadow: 0 4px 10px rgba(255, 46, 99, 0.7), 0 2px 5px rgba(0, 0, 0, 0.5);
+    animation: titleAnimation 2s ease-in-out infinite;
+}
+@keyframes titleAnimation {
+    0%, 100% {
+        text-shadow: 0 4px 10px rgba(255, 46, 99, 0.7), 0 2px 5px rgba(0, 0, 0, 0.5);
+    }
+    50% {
+        text-shadow: 0 6px 15px rgba(255, 46, 99, 1), 0 4px 10px rgba(0, 0, 0, 0.7);
+    }
+}
